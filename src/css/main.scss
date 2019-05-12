@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  background-color: #444;
+
+  .profile {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img:nth-child(0) {
+      order: 1;
+    }
+    img:nth-child(1) {
+      order: 3;
+    }
+
+    h1 {
+      order: 2;
+      color: white;
+      font-size: 5em;
+      font-family: sans-serif;
+      text-shadow: 0 0 20px black;
+    }
+  }
+}
