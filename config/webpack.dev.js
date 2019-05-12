@@ -1,11 +1,12 @@
 const path = require('path')
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   entry: {
-    main: ['./src/index.js'],
+    main: ['webpack-hot-middleware/client', './src/index.js'],
   },
   mode: 'development',
   output: {
@@ -16,8 +17,10 @@ module.exports = {
   devServer: {
     contentBase: 'dist', // serve content from 'dist' folder
     overlay: true,
+    hot: true,
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
