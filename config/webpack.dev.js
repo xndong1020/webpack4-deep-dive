@@ -1,12 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   entry: {
-    main: ['webpack-hot-middleware/client', './src/index.js'],
+    main: ['webpack-hot-middleware/client?reload=true', './src/index.js'],
   },
   mode: 'development',
   output: {
@@ -20,6 +21,9 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new HTMLWebpackPlugin({
+      template: './src/index.html',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -65,15 +69,6 @@ module.exports = {
       {
         test: /\.html$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].html',
-            },
-          },
-          {
-            loader: 'extract-loader',
-          },
           {
             loader: 'html-loader',
             options: {
