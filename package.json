@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config=./config/webpack.dev.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config=./config/webpack.dev.js --open",
-    "dev": "cross-env NODE_ENV=development nodemon --watch config --watch src/server ./src/server/index.js"
+    "dev": "cross-env NODE_ENV=development nodemon --inspect --watch config --watch src/server ./src/server/index.js"
   },
   "keywords": [],
   "author": "",

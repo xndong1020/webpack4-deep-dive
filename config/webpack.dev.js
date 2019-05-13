@@ -15,6 +15,7 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
   },
+  devtool: 'source-map',
   devServer: {
     contentBase: 'dist', // serve content from 'dist' folder
     overlay: true,
